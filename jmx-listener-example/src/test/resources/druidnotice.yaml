@@ -1,0 +1,27 @@
+period: 10000
+msgQueueSize: 5120
+monitorItems:
+  - itemKey: datasource
+    rules:
+    - valueName: ErrorCount
+      compareValue: 1
+      logic: GREATER
+      params:
+        umpKey: pop-crm.druid.sql.error
+    - valueName: NotEmptyWaitCount
+      compareValue: 20
+      logic: GREATER
+      params:
+        umpKey: pop-crm.druid.conn.warn
+  - itemKey: sql
+    rules:
+    - valueName: ErrorCount
+      compareValue: 1
+      logic: GREATER
+      params:
+       umpKey: pop-crm.druid.sql.error
+    - valueName: MaxTimespan
+      compareValue: 100
+      logic: GREATER
+      params:
+        umpKey: pop-crm.druid.sql.warn

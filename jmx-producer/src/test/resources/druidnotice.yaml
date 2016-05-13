@@ -1,0 +1,19 @@
+period: 10000
+msgQueueSize: 5120
+monitorItems:
+  - itemKey: datasource
+    rules:
+    - valueName: ErrorCount
+      compareValue: 1
+      logic: GREATER
+    - valueName: NotEmptyWaitCount
+      compareValue: 20
+      logic: GREATER
+  - itemKey: sql
+    rules:
+    - valueName: ErrorCount
+      compareValue: 1
+      logic: GREATER
+    - valueName: MaxTimespan
+      compareValue: 100
+      logic: GREATER
